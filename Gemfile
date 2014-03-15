@@ -1,6 +1,7 @@
 source :rubygems
 
-gem "zip"
+gem 'rubyzip', '>= 1.0.0'
+gem 'zip-zip' # Just to avoid 'cannot load such file -- zip/zip' error
 gem "simple_enum"
 gem "nokogiri", ">= 1.4.2"
 gem "uuidtools", "~> 2.1.1"
