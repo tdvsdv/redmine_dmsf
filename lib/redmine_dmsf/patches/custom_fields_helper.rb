@@ -27,20 +27,25 @@ module RedmineDmsf
         end
       end
 
-      def custom_fields_tabs_with_customer_tab                    
-        cf = {:name => 'DmsfFileRevisionCustomField', :partial => 'custom_fields/index', :label => :dmsf}        
+      def custom_fields_tabs_with_customer_tab
+        cf = {:name => 'DmsfFileRevisionCustomField', :partial => 'custom_fields/index', :label => :dmsf}
         unless custom_fields_tabs_without_customer_tab.index { |f| f[:name] == cf[:name] }
-          custom_fields_tabs_without_customer_tab << cf 
+          custom_fields_tabs_without_customer_tab << cf
         end
-        custom_fields_tabs_without_customer_tab        
+        custom_fields_tabs_without_customer_tab
       end
     end
   end
 end
 
-# Apply patch
-Rails.configuration.to_prepare do
-  unless CustomFieldsHelper.included_modules.include?(CustomFieldsHelper)
-    CustomFieldsHelper.send(:include, RedmineDmsf::Patches::CustomFieldsHelper)
+
+if (Redmine::VERSION::MAJOR >= 2 && Redmine::VERSION::MINOR >= 5)
+  # Apply patch
+  Rails.configuration.to_prepare do
+    unless CustomFieldsHelper.included_modules.include?(CustomFieldsHelper)
+      CustomFieldsHelper.send(:include, RedmineDmsf::Patches::CustomFieldsHelper)
+    end
   end
+else
+  CustomFieldsHelper::CUSTOM_FIELDS_TABS << { :name => 'DmsfFileRevisionCustomField', :partial => 'custom_fields/index', :label => :dmsf }
 end
