@@ -129,7 +129,7 @@
       </td>
       <td class="version"></td>
       <td class="workflow"></td>
-      <td class="author"><%= h(subfolder.user) %></td>
+      <td class="dmsf_author"><%= h(subfolder.user) %></td>
       <td class="actions">
         <% if @folder_manipulation_allowed %>
           <div class="right_icon_box" style="width:26px;">
@@ -231,7 +231,7 @@
           <%= file.last_revision.workflow_str(false) %>
         <% end %>
       </td>
-      <td class="author"><%= h(file.last_revision.user) %></td>
+      <td class="dmsf_author"><%= h(file.last_revision.user) %></td>
       <td class="actions">
         <% if @file_manipulation_allowed %>
           <div class="right_icon_box" style="width:26px;">

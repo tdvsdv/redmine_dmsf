@@ -48,8 +48,8 @@ table.entries td.title {
 }
 
 table.entries th.check, table.entries td.check {
-	width: 17px; 
-	padding: 2px; 
+	width: 17px;
+	padding: 2px;
 	text-align: left;
 }
 
@@ -143,7 +143,7 @@ td.modified img {
 	vertical-align:text-top;
 }
 
-td.author {
+td.dmsf_author {
 	font-size: 0.8em;
 }
 
@@ -165,7 +165,7 @@ td.workflow {
 
 div.right_icon_box {
 	float: right;
-	white-space: nowrap; 
+	white-space: nowrap;
 	padding: 0 5px 0 5px;
 }
 
@@ -269,7 +269,7 @@ table.access-table tbody td, table.access-table tbody tr:hover td {
   margin-bottom: 10px;
   background-color:#f6f6f6;
   color:#505050;
-  line-height:1.5em;  
+  line-height:1.5em;
 }
 
 div.revision_box .ui-widget-header {
@@ -295,11 +295,11 @@ table.list td.step {
 
 .log_header_box{
   padding:6px;
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
 }
 .log_header_left {
     width: 50%;
-    float: left;    
+    float: left;
 }
 
 .log_header_box label{
