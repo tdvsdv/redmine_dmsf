@@ -15,9 +15,13 @@ module RedmineDmsf
   end
 end
 
-#Apply patch
-Rails.configuration.to_prepare do
-  unless CustomFieldsHelper.included_modules.include?(CustomFieldsHelper)
-    CustomFieldsHelper.send(:include, RedmineDmsf::Patches::CustomFieldsHelper)
+if (Redmine::VERSION::MAJOR >= 2 && Redmine::VERSION::MINOR >= 5)
+  CustomFieldsHelper::CUSTOM_FIELDS_TABS << { :name => 'DmsfFileRevisionCustomField', :partial => 'custom_fields/index', :label => :dmsf }
+else
+  # Apply patch
+  Rails.configuration.to_prepare do
+    unless CustomFieldsHelper.included_modules.include?(CustomFieldsHelper)
+      CustomFieldsHelper.send(:include, RedmineDmsf::Patches::CustomFieldsHelper)
+    end
   end
 end
